@@ -9,6 +9,7 @@ namespace SojaExiles
 	{
 
 		public Animator openandclosewindow;
+		public AudioSource streetAudio;
 		public bool open;
 		public Transform Player;
 
@@ -23,11 +24,11 @@ namespace SojaExiles
 				if (Player)
 				{
 					float dist = Vector3.Distance(Player.position, transform.position);
-					if (dist < 15)
+					if (dist < 3)
 					{
 						if (open == false)
 						{
-							if (Input.GetMouseButtonDown(0))
+							if (Input.GetKeyDown(KeyCode.E))
 							{
 								StartCoroutine(opening());
 							}
@@ -36,7 +37,7 @@ namespace SojaExiles
 						{
 							if (open == true)
 							{
-								if (Input.GetMouseButtonDown(0))
+								if (Input.GetKeyDown(KeyCode.E))
 								{
 									StartCoroutine(closing());
 								}
@@ -55,6 +56,7 @@ namespace SojaExiles
 		{
 			print("you are opening the Window");
 			openandclosewindow.Play("Openingwindow");
+			streetAudio.Play();
 			open = true;
 			yield return new WaitForSeconds(.5f);
 		}
@@ -63,6 +65,7 @@ namespace SojaExiles
 		{
 			print("you are closing the Window");
 			openandclosewindow.Play("Closingwindow");
+			streetAudio.Stop();
 			open = false;
 			yield return new WaitForSeconds(.5f);
 		}

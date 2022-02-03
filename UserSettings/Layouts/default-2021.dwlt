@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 25166
+  controlID: 747
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 25167
+  controlID: 748
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 486
     width: 907
     height: 461
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 307
     height: 947
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -524,9 +524,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.1742592, y: 3.133129, z: 42.555393}
+    m_Target: {x: -7.503201, y: -1.7362837, z: 48.48168}
     speed: 2
-    m_Value: {x: 3.1742592, y: 3.133129, z: 42.555393}
+    m_Value: {x: -7.503201, y: -1.7362837, z: 48.48168}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -573,13 +573,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.034379676, y: 0.86539245, z: -0.060132068, w: 0.49657997}
+    m_Target: {x: 0.1895789, y: -0.6526582, z: 0.17343774, w: 0.7130093}
     speed: 2
-    m_Value: {x: 0.034374632, y: 0.8652655, z: -0.060123246, w: 0.4965071}
+    m_Value: {x: 0.18954425, y: -0.6525389, z: 0.17340603, w: 0.71287894}
   m_Size:
-    m_Target: 1.3406101
+    m_Target: 3.2904904
     speed: 2
-    m_Value: 1.3406101
+    m_Value: 3.2904904
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -727,9 +727,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: ba37fdff84bcfdff94d5fdff021dfeff7883ffff6696fffff69cffff2c9fffff349fffff389fffff34a0ffff36a0ffffa8a4ffffcab4ffff8ccaffff90caffff06cbffff04deffff94a0000000bf0000
+      m_SelectedIDs: 24fefeff
+      m_LastClickedID: -66012
+      m_ExpandedIDs: 72effdffe8a7fefff6fdfeff1efefeff24fefeff9a13ffffc813ffffca49fffff875ffff5476ffffec85ffff0e86ffffdaf4ffffdef4ffffeaf4ffff72f9ffffe8faffffc0f50000a4f60000e4f80000f8f80000b8f90000acfb0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -793,7 +793,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/assets for store/ModularFirstPersonController/FirstPersonController
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -808,7 +809,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 36680000
     m_LastClickedID: 26678
-    m_ExpandedIDs: fe5cfdffffffffff00000000409700004297000044970000489700004a9700004c9700004e97000050970000529700005497000056970000589700005a9700005c9700005e97000060970000629700006497000066970000689700006a9700006c9700006e97000070970000069900000c990000129900003099000034990000429900006e9a0000aa9a0000ae9a0000d29a00007a9b0000289d00002a9d00009ef90000
+    m_ExpandedIDs: ffffffff00000000cc610000ce610000d0610000d2610000d4610000d6610000d8610000da610000dc610000de610000e0610000e2610000e4610000e6610000e8610000ea610000ec610000ee610000f0610000f2610000f4610000f6610000f8610000fc610000fe61000000620000026200000462000006620000086200000a6200000c6200000e62000010620000126200000e630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -836,21 +837,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: fe5cfdffffffffff00000000409700004297000044970000489700004a9700004c9700004e97000050970000529700005497000056970000589700005a9700005c9700005e97000060970000629700006497000066970000689700006a9700006e97000070970000049900000c9900001299000034990000429900006e9a0000aa9a0000c09a0000d29a0000289d00002a9d00004ac402005ac40200
+    m_ExpandedIDs: ffffffff00000000cc610000ce610000d0610000d2610000d4610000d6610000d8610000da610000dc610000de610000e0610000e2610000e4610000e6610000e8610000ea610000ec610000ee610000f0610000f2610000f4610000fa610000fc610000fe6100000062000006620000086200000a6200000c62000012620000046300000e63000010630000486c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ClockController
-      m_OriginalName: ClockController
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 181376
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
