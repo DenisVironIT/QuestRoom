@@ -23,11 +23,21 @@ public class ScreenControll : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
             monitor.SetActive(true);
-      
+        if (input.text.Length > 3)
+        {
+            input.DeactivateInputField(true);
+        }
+            
+        if (input.text == "5511")
+        {
+            print("Unlock");
+            giveKey.Play("Open");
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -37,42 +47,29 @@ public class ScreenControll : MonoBehaviour
 
     void OnMouseOver()
     {
+        if (Player)
         {
-
-            if (input.text == "1234")
+            float dist = Vector3.Distance(Player.position, transform.position);
+            if (dist < 1.2)
             {
-                print("Unlock");
-                giveKey.Play("Open");
-            }
-            if (Player)
-            {
-                float dist = Vector3.Distance(Player.position, transform.position);
-                if (dist < 1.2)
+                if (turn == false)
                 {
-                    if (turn == false)
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            StartCoroutine(opening());
-                        }
+                        StartCoroutine(opening());
                     }
-                    else
-                    {
-                        if (turn == true)
-                        {
-                            if (Input.GetKeyDown(KeyCode.E))
-                            {
-                                StartCoroutine(closing());
-                            }
-                        }
-
-                    }
-
                 }
             }
-
         }
-
+    }
+    public void DeleteText()
+    {
+        input.text = null;
+        input.ActivateInputField();
+    }
+    public void ExitPC()
+    {
+        StartCoroutine(closing());
     }
 
     IEnumerator opening()
@@ -83,10 +80,11 @@ public class ScreenControll : MonoBehaviour
         cameraPlayer.SetActive(false);
         cameraNotebook.SetActive(true);
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
 
 
         turn = true;
+        print(turn);
         yield return new WaitForSeconds(.5f);
     }
 
@@ -102,8 +100,6 @@ public class ScreenControll : MonoBehaviour
         turn = false;
         yield return new WaitForSeconds(.5f);
     }
-
-
 }
 
 

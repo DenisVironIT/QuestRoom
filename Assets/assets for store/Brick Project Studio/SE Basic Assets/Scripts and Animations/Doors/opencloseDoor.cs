@@ -7,12 +7,10 @@ namespace SojaExiles
 {
 	public class opencloseDoor : MonoBehaviour
 	{
-
 		public Animator openandclose;
 		public AudioSource soundDoor;
 		public bool open;
 		public Transform Player;
-
 		void Start()
 		{
 			open = false;
