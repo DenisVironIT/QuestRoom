@@ -11,6 +11,7 @@ public class ScreenControll : MonoBehaviour
     [SerializeField] private TMP_InputField input;
     public Animator giveKey;
     [SerializeField] GameObject cameraPlayer;
+    [SerializeField] GameObject cameraPlayerBody;
     [SerializeField] GameObject cameraNotebook;
     [SerializeField] GameObject monitor;
     [SerializeField] GameObject playControl;
@@ -77,6 +78,7 @@ public class ScreenControll : MonoBehaviour
         print("nootebook turn on");
 
         playControl.GetComponent<FirstPersonController>().enabled = false;
+        cameraPlayerBody.SetActive(false);
         cameraPlayer.SetActive(false);
         cameraNotebook.SetActive(true);
         Cursor.visible = true;
@@ -94,6 +96,7 @@ public class ScreenControll : MonoBehaviour
 
         playControl.GetComponent<FirstPersonController>().enabled = true;
         cameraPlayer.SetActive(true);
+        cameraPlayerBody.SetActive(true);
         cameraNotebook.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

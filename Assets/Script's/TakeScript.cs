@@ -22,7 +22,7 @@ public class TakeScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hammerCreate = true;
-                    hammerFloor.SetActive(false);
+                    Destroy(hammerFloor);
                     hammerArm.SetActive(true);
                     
 
