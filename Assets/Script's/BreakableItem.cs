@@ -5,17 +5,24 @@ using UnityEngine;
 public class BreakableItem : MonoBehaviour
 {
     public TakeScript Hammer;
-    public bool brokenWindow = false;
+    public bool brokenWindow = false;  //sound street if window broken
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource brokenGlass;
     [SerializeField] Rigidbody rb;
     [SerializeField] GameObject hammerArm;
+    [SerializeField] GameObject window;
     public Transform Player;
     private void Start()
     {
 
         rb = GetComponent<Rigidbody>();
     }
-
+    IEnumerator DestroyWindow()
+    {
+        brokenGlass.Play();
+        yield return new WaitForSeconds(0.5f);
+        Destroy(window);
+    }
 
     void OnMouseOver()
     {
@@ -36,6 +43,7 @@ public class BreakableItem : MonoBehaviour
                         brokenWindow = true;
                         rb.isKinematic = false;
                         audioSource.Play();
+                        StartCoroutine(DestroyWindow());
                     }
 
                 }

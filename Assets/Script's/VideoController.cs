@@ -12,6 +12,7 @@ namespace SojaExiles
         public VideoPlayer video;
         public AudioSource audioSource;
         public bool play;
+        [SerializeField] GameObject screen;
         public Transform Player;
 
         void Start()
@@ -57,6 +58,7 @@ namespace SojaExiles
         {
             print("you are playing video");
             audioSource.Pause();
+            screen.SetActive(true);
             video.Play();
             play = true;
             yield return new WaitForSeconds(.5f);
@@ -66,6 +68,7 @@ namespace SojaExiles
         {
             print("you are pause video");
             audioSource.Play();
+            screen.SetActive(false);
             video.Stop();
             play = false;
             yield return new WaitForSeconds(.5f);
