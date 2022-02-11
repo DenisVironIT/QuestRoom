@@ -81,8 +81,6 @@ public class ScreenControll : MonoBehaviour
         cameraNotebook.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-
-
         turn = true;
         print(turn);
         yield return new WaitForSeconds(.5f);
