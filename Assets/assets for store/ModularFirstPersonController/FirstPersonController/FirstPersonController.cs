@@ -12,6 +12,7 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 using System.Net;
+using Cinemachine;
 #endif
 
 public class FirstPersonController : MonoBehaviour
@@ -25,7 +26,7 @@ public class FirstPersonController : MonoBehaviour
 
     #region Camera Movement Variables
 
-    public Camera playerCamera;
+    public CinemachineVirtualCamera playerCamera;
 
     public float fov = 60f;
     public bool invertCamera = false;
@@ -144,7 +145,7 @@ public class FirstPersonController : MonoBehaviour
         crosshairObject = GetComponentInChildren<Image>();
 
         // Set internal variables
-        playerCamera.fieldOfView = fov;
+        playerCamera.m_Lens.FieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
 
@@ -176,30 +177,30 @@ public class FirstPersonController : MonoBehaviour
 
         sprintBarCG = GetComponentInChildren<CanvasGroup>();
 
-        if (useSprintBar)
-        {
-            sprintBarBG.gameObject.SetActive(true);
-            sprintBar.gameObject.SetActive(true);
+        //if (useSprintBar)
+        //{
+        //    sprintBarBG.gameObject.SetActive(true);
+        //    sprintBar.gameObject.SetActive(true);
 
-            float screenWidth = Screen.width;
-            float screenHeight = Screen.height;
+        //    float screenWidth = Screen.width;
+        //    float screenHeight = Screen.height;
 
-            sprintBarWidth = screenWidth * sprintBarWidthPercent;
-            sprintBarHeight = screenHeight * sprintBarHeightPercent;
+        //    sprintBarWidth = screenWidth * sprintBarWidthPercent;
+        //    sprintBarHeight = screenHeight * sprintBarHeightPercent;
 
-            sprintBarBG.rectTransform.sizeDelta = new Vector3(sprintBarWidth, sprintBarHeight, 0f);
-            sprintBar.rectTransform.sizeDelta = new Vector3(sprintBarWidth - 2, sprintBarHeight - 2, 0f);
+        //    sprintBarBG.rectTransform.sizeDelta = new Vector3(sprintBarWidth, sprintBarHeight, 0f);
+        //    sprintBar.rectTransform.sizeDelta = new Vector3(sprintBarWidth - 2, sprintBarHeight - 2, 0f);
 
-            if (hideBarWhenFull)
-            {
-                sprintBarCG.alpha = 0;
-            }
-        }
-        else
-        {
-            sprintBarBG.gameObject.SetActive(false);
-            sprintBar.gameObject.SetActive(false);
-        }
+        //    if (hideBarWhenFull)
+        //    {
+        //        sprintBarCG.alpha = 0;
+        //    }
+        //}
+        //else
+        //{
+        //    sprintBarBG.gameObject.SetActive(false);
+        //    sprintBar.gameObject.SetActive(false);
+        //}
 
         #endregion
     }
@@ -267,11 +268,11 @@ public class FirstPersonController : MonoBehaviour
             // Lerps camera.fieldOfView to allow for a smooth transistion
             if (isZoomed)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
+                playerCamera.m_Lens.FieldOfView = Mathf.Lerp(playerCamera.m_Lens.FieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
             }
             else if (!isZoomed && !isSprinting)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, zoomStepTime * Time.deltaTime);
+                playerCamera.m_Lens.FieldOfView = Mathf.Lerp(playerCamera.m_Lens.FieldOfView, fov, zoomStepTime * Time.deltaTime);
             }
         }
 
@@ -285,7 +286,7 @@ public class FirstPersonController : MonoBehaviour
             if (isSprinting)
             {
                 isZoomed = false;
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
+                playerCamera.m_Lens.FieldOfView = Mathf.Lerp(playerCamera.m_Lens.FieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
                 // Drain sprint remaining while sprinting
                 if (!unlimitedSprint)
@@ -596,7 +597,8 @@ public class FirstPersonControllerEditor : Editor
         GUILayout.Label("Camera Setup", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
-        fpc.playerCamera = (Camera)EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."), fpc.playerCamera, typeof(Camera), true);
+        fpc.playerCamera = (CinemachineVirtualCamera)EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."), fpc.playerCamera, typeof(CinemachineVirtualCamera), true);
+        fpc.audioStore = (AudioStore)EditorGUILayout.ObjectField(new GUIContent("AudioStore", "AudioStore for sounds."), fpc.audioStore, typeof(AudioStore), true);
         fpc.fov = EditorGUILayout.Slider(new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV, 179f);
         fpc.cameraCanMove = EditorGUILayout.ToggleLeft(new GUIContent("Enable Camera Rotation", "Determines if the camera is allowed to move."), fpc.cameraCanMove);
 
